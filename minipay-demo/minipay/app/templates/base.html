@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MiniPay</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>MiniPay</h1>
+    {% if request.session.get('user') %}
+    <nav>
+      <a href="/" data-testid="nav-dashboard">Dashboard</a>
+      <a href="/payments/new" data-testid="nav-new-payment">New Payment</a>
+      <a href="/logout" data-testid="nav-logout">Logout ({{ request.session.get('user') }})</a>
+    </nav>
+    {% endif %}
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

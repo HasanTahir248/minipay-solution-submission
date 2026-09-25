@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search Transactions</h2>
+<form method="get" action="/search" class="card">
+  <input type="text" name="ref" placeholder="TXN00000001" value="{{ query or '' }}" data-testid="search-input">
+  <button type="submit" data-testid="search-submit">Search</button>
+</form>
+
+{% if error %}
+<p class="error" data-testid="error-message">{{ error }}</p>
+{% endif %}
+
+{% if result %}
+<div data-testid="search-result" class="card">
+  <h3>Results</h3>
+  <table>
+    <thead>
+      <tr><th>Ref</th><th>Amount</th><th>Status</th><th>Created</th><th>Completed</th><th>Failure</th></tr>
+    </thead>
+    <tbody>
+      {% for r in result %}
+      <tr data-testid="search-result-row">
+        <td>{{ r.transaction_ref }}</td>
+        <td>{{ r.amount }}</td>
+        <td data-testid="payment-status">{{ r.status }}</td>
+        <td>{{ r.created_at }}</td>
+        <td>{{ r.completed_at or '-' }}</td>
+        <td>{{ r.failure_code or '-' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<h3>Recent Transactions</h3>
+<table class="card">
+  <thead><tr><th>Ref</th><th>Amount</th><th>Status</th><th>Created</th></tr></thead>
+  <tbody>
+    {% for r in recent %}
+    <tr>
+      <td>{{ r.transaction_ref }}</td><td>{{ r.amount }}</td><td>{{ r.status }}</td><td>{{ r.created_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

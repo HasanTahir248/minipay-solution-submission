@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>New Payment</h2>
+{% if error %}<p class="error" data-testid="error-message">{{ error }}</p>{% endif %}
+{% if success %}
+<p class="success" data-testid="payment-success">
+  Payment {{ success.transaction_ref }} created — status:
+  <span data-testid="payment-status">{{ success.status }}</span>
+</p>
+{% endif %}
+<form method="post" action="/payments/new" class="card">
+  <label>Customer ref
+    <input type="text" name="customer_ref" placeholder="CUST000001" data-testid="new-payment-customer-ref">
+  </label>
+  <label>Amount
+    <input type="text" name="amount" placeholder="100.00" data-testid="new-payment-amount">
+  </label>
+  <button type="submit" data-testid="new-payment-submit">Submit Payment</button>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Log in</h2>
+{% if error %}<p class="error" data-testid="error-message">{{ error }}</p>{% endif %}
+<form method="post" action="/login" class="card">
+  <label>Username
+    <input type="text" name="username" data-testid="login-username" autocomplete="username">
+  </label>
+  <label>Password
+    <input type="password" name="password" data-testid="login-password" autocomplete="current-password">
+  </label>
+  <button type="submit" data-testid="login-submit">Log in</button>
+</form>
+<p class="hint">Demo credentials: <code>admin</code> / <code>admin123</code></p>
+{% endblock %}

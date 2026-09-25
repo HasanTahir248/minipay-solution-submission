@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #f5f6f8; color: #1c1f26; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: #1c1f26; color: #fff; }
+.topbar nav a { color: #cfd6e4; margin-left: 16px; text-decoration: none; }
+.topbar nav a:hover { color: #fff; }
+.container { max-width: 780px; margin: 24px auto; padding: 0 16px; }
+.card { background: #fff; border: 1px solid #dfe3e8; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+form.card { display: flex; gap: 8px; align-items: end; }
+form.card label { display: flex; flex-direction: column; font-size: 13px; color: #555; flex: 1; }
+input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 4px; }
+button { padding: 9px 16px; border: none; border-radius: 4px; background: #2f6feb; color: #fff; cursor: pointer; }
+button:hover { background: #2558c7; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+.error { color: #b3261e; background: #fdecea; border: 1px solid #f5c2be; padding: 10px; border-radius: 6px; }
+.success { color: #0b6b3a; background: #e8f6ee; border: 1px solid #b7e4c7; padding: 10px; border-radius: 6px; }
+.hint { color: #777; font-size: 13px; }
